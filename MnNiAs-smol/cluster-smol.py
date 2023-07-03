@@ -43,7 +43,7 @@ from smol.cofe import StructureWrangler
 
 directory = os.path.join(os.getcwd(), "smol-data")
 dft_data = os.path.join(directory, "dft-data")
-energy_file  = os.path.join(dft_data,"energies.json")
+energy_file  = os.path.join(dft_data,"smol-struct-energies.json")
 entries = loadfn(energy_file)
 wrangler = StructureWrangler(subspace)
 for entry in entries:
