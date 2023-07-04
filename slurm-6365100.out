@@ -1,0 +1,15 @@
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:20: UserWarning: We are starting the job
+  warnings.warn("We are starting the job")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:22: UserWarning: We have loaded the job
+  warnings.warn("We have loaded the job")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:34: UserWarning: Sampling information: Metadata(cls_name='SampleContainer', kernels=[Metadata(seed=82011333811081727654009170467526188352, step=Metadata(sublattices=[(Element Mn, Element Ni), (Element As,)], sublattice_probabilities=array([1.]), cls_name='Swap'), cls_name='Metropolis')])
+  warnings.warn(f"Sampling information: {sampler.samples.metadata}")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:40: UserWarning: Applying transformation
+  warnings.warn("Applying transformation")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:42: UserWarning: We have applied transformation
+  warnings.warn("We have applied transformation")
+/home/valmzztt/smol_env/lib/python3.9/site-packages/smol/moca/sampler/sampler.py:262: RuntimeWarning: Initial occupancies where provided with a pre-existing set of samples.
+ Make real sure that is what you want. If not, reset the samples in the sampler.
+  warn(
+/var/spool/slurmd/job6365100/slurm_script: line 10: 227026 Killed                  python run-mc-smol.py
+slurmstepd: error: Detected 1 oom_kill event in StepId=6365100.batch. Some of the step tasks have been OOM Killed.

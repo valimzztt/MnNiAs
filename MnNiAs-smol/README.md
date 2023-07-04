@@ -16,3 +16,14 @@ SQS generation can be carried out by matching correlation vectors, or cluster in
 
 The reference paper for SQS in SMOL is: https://www.sciencedirect.com/science/article/abs/pii/S0364591613000540?via%3Dihub
 
+
+## General workflow for cluster expansion using ICET
+The typical workflow involves the following steps:
+
+initialize a cluster space (via ClusterSpace) by providing a prototype structure (typically a primitive cell), the species that are allowed on each site as well as cutoff radii for clusters of different orders
+
+initialize a structure container (via StructureContainer) using the cluster space created previously and add a set of input structures with reference data for the property or properties of interest
+
+fit the parameters using an optimizer (e.g., Optimizer, EnsembleOptimizer, or CrossValidationEstimator from the trainstation package)
+
+construct a cluster expansion (via ClusterExpansion) by combining the cluster space with a set of parameters obtained by optimization

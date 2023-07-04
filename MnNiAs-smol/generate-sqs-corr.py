@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import crystal_toolkit
 from pymatgen.core import Lattice, Structure
 from smol.capp.generate.special.sqs import StochasticSQSGenerator
 from monty.serialization import loadfn, dumpfn

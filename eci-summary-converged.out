@@ -1,0 +1,67 @@
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/cluster-exp.py:33: UserWarning: We are about to create the cluster subspace
+  warnings.warn("We are about to create the cluster subspace")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/cluster-exp.py:35: UserWarning: We have created the cluster subspace
+  warnings.warn("We have created the cluster subspace")
+/home/valmzztt/smol_env/lib/python3.9/site-packages/smol/cofe/wrangling/wrangler.py:770: UserWarning: Unable to match Mn7 Ni5 As12 with energy -158.84493598 to supercell_structure. Throwing out.
+ Error Message: Mapping could not be found from structure.
+  warnings.warn(
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/cluster-exp.py:47: UserWarning: 
+Total structures that match 34/35
+  warnings.warn(f'\nTotal structures that match {wrangler.num_structures}/{len(entries)}')
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/cluster-exp.py:68: UserWarning: The predicted energy for a structure with composition Mn10 As12 Ni2 is -166.10511125208325 eV/prim.
+
+  warnings.warn(f'The predicted energy for a structure with composition '
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/cluster-exp.py:70: UserWarning: The fitted coefficients are:
+[-22.53296155  -6.51669515  -0.43698672  -1.047439    -0.42143661
+   0.07863586   1.0843885    0.0784727   -0.4646579    0.16024674
+  -2.35629019   1.61045821   3.187891     0.14709084   0.66998587
+  -0.40778513   0.38093127  -1.07309559   0.5043372   -0.21831526
+   1.82420038  -2.9371237 ]
+
+  warnings.warn(f'The fitted coefficients are:\n{expansion.coefs}\n')
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/cluster-exp.py:71: UserWarning: The effective cluster interactions are:
+[-2.25329615e+01 -3.25834758e+00 -2.18493361e-01 -1.74573167e-01
+ -3.51197178e-02  3.93179301e-02  9.03657080e-02  1.30787826e-02
+ -3.87214913e-02  4.00616856e-02 -9.81787580e-02  1.34204851e-01
+  2.65657583e-01  1.22575703e-02  3.34992934e-01 -3.39820940e-02
+  3.17442722e-02 -8.94246327e-02  4.20280997e-02 -3.63858767e-02
+  1.52016698e-01 -2.44760308e-01]
+
+  warnings.warn(f'The effective cluster interactions are:\n{expansion.eci}\n')
+Basis/Orthogonal/Orthonormal : indicator/False/False
+       Unit Cell Composition : Mn1 Ni1 As2
+            Number of Orbits : 22
+No. of Correlation Functions : 22
+             Cluster Cutoffs : 2: 6.80, 3: 5.05, 4: 5.05
+              External Terms : []
+Regression Data : estimator=LinearRegression
+                  module=sklearn.linear_model._base
+                  parameters={'copy_X': True, 'fit_intercept': False, 'n_jobs': None, 'positive': False}
+Target Property    : mean=-25.4160  std=1.7411
+ECI-based Property : mean=-22.5330  std=4.9316
+Fit Summary
+ ----------------------------------------------------------------------------------------------------
+ |  ID    Orbit ID    Degree    Cluster Diameter    ECI    Feature AVG    Feature STD    ECI * STD  |
+ |  0        0          0              NA         -22.533     1.000          0.000        -0.000    |
+ |  1        1          1            0.0000       -3.258      0.457          0.283        -0.923    |
+ |  2        2          2            2.5225       -0.218      0.268          0.308        -0.067    |
+ |  3        3          2            3.6458       -0.175      0.302          0.295        -0.051    |
+ |  4        4          2            4.4334       -0.035      0.264          0.297        -0.010    |
+ |  5        5          2            5.0451        0.039      0.343          0.313         0.012    |
+ |  6        6          2            6.2245        0.090      0.290          0.287         0.026    |
+ |  7        7          2            6.3147        0.013      0.292          0.298         0.004    |
+ |  8        8          2            6.7999       -0.039      0.267          0.296        -0.011    |
+ |  9        9          3            3.6458        0.040      0.231          0.290         0.012    |
+ |  10       10         3            4.4334       -0.098      0.199          0.274        -0.027    |
+ |  11       11         3            4.4334        0.134      0.196          0.272         0.037    |
+ |  12       12         3            4.4334        0.266      0.199          0.271         0.072    |
+ |  13       13         3            5.0451        0.012      0.210          0.294         0.004    |
+ |  14       14         3            5.0451        0.335      0.221          0.305         0.102    |
+ |  15       15         4            4.4334       -0.034      0.159          0.258        -0.009    |
+ |  16       16         4            4.4334        0.032      0.160          0.258         0.008    |
+ |  17       17         4            4.4334       -0.089      0.153          0.253        -0.023    |
+ |  18       18         4            4.4334        0.042      0.155          0.252         0.011    |
+ |  19       19         4            4.4334       -0.036      0.161          0.255        -0.009    |
+ |  20       20         4            5.0451        0.152      0.168          0.267         0.041    |
+ |  21       21         4            5.0451       -0.245      0.163          0.266        -0.065    |
+ ----------------------------------------------------------------------------------------------------
