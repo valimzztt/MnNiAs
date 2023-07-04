@@ -24,8 +24,15 @@ related methods (https://cedergrouphub.github.io/smol/)
 
 ## Important considerations: 
 ### Choosing between random and SQS:
-1. Pros: 
--  
+1. Pros:  SQS generation is the best periodic supercell approximations to the true disordered state for a given number of atoms per supercell. The method is based on a Monte Carlo simulated annealing loop with an objective function that seeks to
+perfectly match the maximum number of correlation functions (as opposed to merely minimizing the
+distance between the SQS correlation and the disordered state correlations for a pre-specified set of
+correlations). SQS are optimal according to the criterion that a specified set of correlations between neighboring
+site occupations in the SQS match the corresponding correlation of the true, fully disordered, state.The method optimizes the shape of the supercell jointly with the occupation of
+the atomic sites, thus ensuring that the configurational space searched is exhaustive and not biased by a
+pre-specified supercell shape. 
+
+2. Cons: literature reported different predicted properties based on different initial SQS. 
 
 ### Truncation of the CE expansion: 
  An unsuccessfully truncated CE model due to a limited number of considered training structures may explain the discrepancy in why CE fails to predict the correct outcome in ref. 31. Such inconsistency demonstrates the importance of using an appropriately truncated CE model when studying the mixing of metals in MAX phases.

@@ -11,3 +11,7 @@
 /home/valmzztt/smol_env/lib/python3.9/site-packages/smol/moca/sampler/sampler.py:262: RuntimeWarning: Initial occupancies where provided with a pre-existing set of samples.
  Make real sure that is what you want. If not, reset the samples in the sampler.
   warn(
+StructureWrangler: <class 'smol.cofe.wrangling.wrangler.StructureWrangler'>
+
+ClusterExpansion: <class 'smol.cofe.expansion.ClusterExpansion'>
+

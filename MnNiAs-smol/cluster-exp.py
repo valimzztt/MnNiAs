@@ -24,7 +24,8 @@ dft_data = os.path.join(cwd , "dft-data")
 # first create the primitive lattice: use fractional occupancies to have a disordered primitive cell
 species = [{'Mn': 0.50, 'Ni': 0.5},{'As':1.0}]
 my_lattice = Lattice.from_parameters(3.64580405, 3.64580405, 5.04506600, 90, 90, 120)
-struct = Structure.from_spacegroup(194, my_lattice,  species, coords=[[0, 0, 0],[0.33333333, 0.66666667, 0.25]], site_properties={"oxidation": [0, 0]})
+struct = Structure.from_spacegroup(194, my_lattice,  species, coords=[[0, 0, 0],[0.33333333, 0.66666667, 0.25]], 
+                                   site_properties={"oxidation": [0, 0]})
 supercell = struct *(8,8,8)
 
 """
