@@ -8,3 +8,10 @@
   warnings.warn("Applying transformation")
 /project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-clease.py:42: UserWarning: We have applied transformation
   warnings.warn("We have applied transformation")
+/home/valmzztt/smol_env/lib/python3.9/site-packages/smol/moca/sampler/sampler.py:262: RuntimeWarning: Initial occupancies where provided with a pre-existing set of samples.
+ Make real sure that is what you want. If not, reset the samples in the sampler.
+  warn(
+StructureWrangler: <class 'smol.cofe.wrangling.wrangler.StructureWrangler'>
+
+ClusterExpansion: <class 'smol.cofe.expansion.ClusterExpansion'>
+

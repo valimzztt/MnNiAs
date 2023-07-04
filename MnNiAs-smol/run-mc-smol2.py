@@ -53,7 +53,7 @@ from ase.io import vasp
 
 T = 1500
 
-directory = 'MC_1500K_smol'
+directory = 'MC_1500K_smol2'
 cwd = os.getcwd()
 parent_dir = cwd
 path = os.path.join(parent_dir, directory)
@@ -96,7 +96,7 @@ with open('MC_1500K_eq.json','w') as f:
     json.dump(min_s.as_dict(), f)
 
 
-for i in range(T, 0, -50):
+for i in range(T, 0, -5):
     T = i
     sampler.run(mcmc_steps,init_occu,
             thin_by=100, # thin_by will save every 100th sample only
