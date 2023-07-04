@@ -1,7 +1,8 @@
 # Performing cluster expansion using the SMOL package
 
 ## Workflow will be as follows: 
-1. Generate random structures using CLEASE (run generate.py)
+1. Generate random structures using CLEASE (run generate.py) or run the script that generates the special quasi random structures
+provided by SMOL (run generate-sqs-clusterpy or generate-sqs-corr.py)
 2. Perform DFT using VASP on the LISA cluster
 3. Retrieve relaxed structure and energy from computed energies (run retrieve-energies.py)
 4. Transform ASE Atoms objects into Pymatgen structures (retrieve-energies.py)

@@ -15,7 +15,7 @@ src = os.path.join(cwd, "MnNiAs-clease")
 dest = os.path.join(cwd, "MnNiAs-smol")
 dest =  os.path.join(dest, "dft-data")
 energies = []
-output_json = os.path.join(dest, "comp-initstruct-energy.json")
+output_json = os.path.join(dest, "comp-struct-energy.json")
 
 for foldername in os.listdir(src):
     if(foldername.startswith("vasp")):
@@ -31,11 +31,13 @@ for foldername in os.listdir(src):
                 struct = vasprun.final_structure
                 poscar = Poscar.from_file(poscar_file)
                 initial_struct = poscar.structure
+                contcar = Poscar.from_file(contcar_file)
+                initial_struct = poscar.structure
                 outcar = Outcar(outcar_file)
                 # We can both get the relaxed structure from the VASPRUN as well as the intial structure: 
                 # how much will the ECI values change?
                 # comp_entry = ComputedStructureEntry(struct, outcar.final_energy)
-                comp_entry = ComputedStructureEntry(initial_struct, outcar.final_energy)
+                comp_entry = ComputedStructureEntry(contcar.structure, outcar.final_energy)
                 comp_entry_dict = comp_entry.as_dict()
                 energies.append(comp_entry_dict)
         except:
