@@ -1,0 +1,17 @@
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:20: UserWarning: We are starting the job
+  warnings.warn("We are starting the job")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:22: UserWarning: We have loaded the job
+  warnings.warn("We have loaded the job")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:34: UserWarning: Sampling information: Metadata(cls_name='SampleContainer', kernels=[Metadata(seed=220359468319772036424375162355103013202, step=Metadata(sublattices=[(Element Mn, Element Ni), (Element As,)], sublattice_probabilities=array([1.]), cls_name='Swap'), cls_name='Metropolis')])
+  warnings.warn(f"Sampling information: {sampler.samples.metadata}")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:40: UserWarning: Applying transformation
+  warnings.warn("Applying transformation")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-smol/run-mc-smol.py:42: UserWarning: We have applied transformation
+  warnings.warn("We have applied transformation")
+/home/valmzztt/smol_env/lib/python3.9/site-packages/smol/moca/sampler/sampler.py:262: RuntimeWarning: Initial occupancies where provided with a pre-existing set of samples.
+ Make real sure that is what you want. If not, reset the samples in the sampler.
+  warn(
+StructureWrangler: <class 'smol.cofe.wrangling.wrangler.StructureWrangler'>
+
+ClusterExpansion: <class 'smol.cofe.expansion.ClusterExpansion'>
+

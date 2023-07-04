@@ -6,7 +6,7 @@ from smol.cofe import ClusterSubspace, StructureWrangler, ClusterExpansion, Regr
 from smol.io import save_work
 
 
-file_path = 'MnNiAs-smol/ce-data/ce_MnNiAs.mson'
+file_path = 'MnNiAs-smol/ce-data/ce_MnNiAs_smol.mson'
 
 work = load_work(file_path)
 for name, obj in work.items():

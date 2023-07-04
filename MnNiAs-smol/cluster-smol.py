@@ -7,6 +7,7 @@ from monty.serialization import loadfn, dumpfn
 from pymatgen.core.structure import Structure
 from pymatgen.core.structure import Lattice
 from smol.cofe import ClusterSubspace, StructureWrangler, ClusterExpansion, RegressionData
+import warnings 
 
 # first create the lattice
 from pymatgen.core.composition import Element, Composition
@@ -35,7 +36,7 @@ subspace = ClusterSubspace.from_cutoffs(supercell,
 # supercell_size specifies the method to determine the supercell size
 # when trying to match a structure.
 # (See pymatgen.structure_matcher.StructureMatcher for more info)
-print(subspace) # single site and empty orbits are always included
+warnings.warn(subspace) # single site and empty orbits are always included
 
 #the structure wrangler
 from monty.serialization import loadfn
@@ -51,7 +52,7 @@ for entry in entries:
 
 
 # The verbose flag will print structures that fail to match.
-print(f'\nTotal structures that match {wrangler.num_structures}/{len(entries)}')
+warnings.warn(f'\nTotal structures that match {wrangler.num_structures}/{len(entries)}')
 
 from sklearn.linear_model import LinearRegression
 # Set fit_intercept to False because we already do this using
