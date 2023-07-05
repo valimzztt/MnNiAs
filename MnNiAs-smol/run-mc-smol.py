@@ -53,7 +53,7 @@ from ase.io import vasp
 
 T = 1500
 
-directory = 'MC_1500K_smol'
+directory = 'MC_1500K_smol4'
 cwd = os.getcwd()
 parent_dir = cwd
 path = os.path.join(parent_dir, directory)
