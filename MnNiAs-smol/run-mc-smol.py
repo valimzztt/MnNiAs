@@ -53,7 +53,7 @@ from ase.io import vasp
 
 T = 1500
 
-directory = 'MC_1500K_smol4'
+directory = 'MC_1500K_smol'
 cwd = os.getcwd()
 parent_dir = cwd
 path = os.path.join(parent_dir, directory)
@@ -63,7 +63,7 @@ os.chdir(path)
 mcmc_steps = 1000000
 T = 1500
 sampler.run(mcmc_steps,init_occu,
-            thin_by=100, # thin_by will save every 100th sample only
+            thin_by=mcmc_steps, # thin_by will save every 100th sample only
             progress=False) # progress will show progress bar
 
 f = open('MC_eq_{}'.format(T),'w')

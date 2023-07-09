@@ -7,4 +7,4 @@
 #SBATCH --ntasks=49             # number of MPI processes
 #SBATCH --mem-per-cpu=10G      # memory; default unit is megabytes
 cd MnNiAs-scf
-python run-mc-smol.py
+python run-smol.py

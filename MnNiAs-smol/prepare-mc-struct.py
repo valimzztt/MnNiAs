@@ -16,7 +16,7 @@ from pymatgen.transformations.standard_transformations import (
 import warnings
 
 # These contain the ECI values obtained by fitting the CLEASE data
-file_path = 'ce_MnNiAs_new.mson'
+file_path = 'ce-data/ce_MnNiAs_smol.mson'
 warnings.warn("We are starting the job")
 work = load_work(file_path)
 warnings.warn("We have loaded the job")
@@ -32,13 +32,20 @@ structure = expansion.cluster_subspace.structure.copy()*(6,6,6)
 for i in range(0,len(structure.sites),1):
     print(structure[i].species)
     print(structure[i].species.get_atomic_fraction(Element("Mn")))
-    if(structure[i].species.get_atomic_fraction(Element("Mn"))==0.5 and i%2 == 0):
+    if(structure[i].species.get_atomic_fraction(Element("Mn"))==0.6 and i%2 == 0):
         structure[i]="Mn"
-    if(structure[i].species.get_atomic_fraction(Element("Mn"))==0.5 and i%2 != 0):
+    if(structure[i].species.get_atomic_fraction(Element("Mn"))==0.6 and i%2 != 0):
         structure[i]="Ni"
 
 print(structure)
 ensemble = Ensemble.from_cluster_expansion(expansion, supercell_matrix=sc_matrix)
 
 
+from pymatgen.io.xyz import XYZ
+from pymatgen.io.cif import CifWriter
 
+#vasp.write_vasp('POSCARsorted{}.vasp'.format(T), sorted_atoms, direct=False, wrap=False)
+#sorted_atoms=sort(sorted_atoms)
+T = 2000
+writer = CifWriter(structure)
+writer.write_file('POSCARNi_cif{}.cif'.format(T))
