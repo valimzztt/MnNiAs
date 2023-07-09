@@ -1,0 +1,8 @@
+/project/6001368/valmzztt/MnNiAs/MnNiAs-all/conc_0p5_0p5/run-smol-lasso1.py:23: UserWarning: We are starting the job
+  warnings.warn("We are starting the job")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-all/conc_0p5_0p5/run-smol-lasso1.py:25: UserWarning: We have loaded the job
+  warnings.warn("We have loaded the job")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-all/conc_0p5_0p5/run-smol-lasso1.py:39: UserWarning: Sampling information: Metadata(cls_name='SampleContainer', kernels=[Metadata(seed=108195747447809071955112140693065154120, step=Metadata(sublattices=[(Element Mn, Element Ni), (Element As,)], sublattice_probabilities=array([1.]), cls_name='Swap'), cls_name='Metropolis')])
+  warnings.warn(f"Sampling information: {sampler.samples.metadata}")
+/project/6001368/valmzztt/MnNiAs/MnNiAs-all/conc_0p5_0p5/run-smol-lasso1.py:48: UserWarning: About to apply transformation
+  warnings.warn("About to apply transformation")

@@ -81,7 +81,9 @@ warnings.warn(f'\nTotal structures that match {wrangler.num_structures}/{len(ent
 from sklearn.linear_model import Ridge, RidgeCV
 # reg = LinearRegression(fit_intercept=False)
 # alpha is exactly equal to
-reg = Ridge(fit_intercept=False, alpha=1.0985411419875573)
+alpha = 9.540954763499944e-06
+alpha=1.0985411419875573
+reg = Ridge(fit_intercept=False, alpha=9.540954763499944e-06)
 reg.fit(wrangler.feature_matrix, wrangler.get_property_vector("energy"))
 
 from smol.cofe import ClusterExpansion, RegressionData
@@ -109,7 +111,7 @@ warnings.warn(f'The effective cluster interactions are:\n{expansion.eci}\n')
 
 from smol.io import save_work
 
-file_path = 'ce-data/ce_MnNiAs_scf_c1_ridge2.mson'
+file_path = 'ce-data/ce_MnNiAs_scf_c1_ridge3.mson'
 # We can save the subspace as well, but since both the wrangler
 # and the expansion have it, there is no need to do so.
 save_work(file_path, wrangler, expansion)

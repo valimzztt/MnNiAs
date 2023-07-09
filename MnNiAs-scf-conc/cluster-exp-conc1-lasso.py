@@ -81,6 +81,7 @@ warnings.warn(f'\nTotal structures that match {wrangler.num_structures}/{len(ent
 from sklearn.linear_model import LinearRegression,Lasso
 # reg = LinearRegression(fit_intercept=False)
 # we set the exact alpha coefficient
+alpha = 1.0985411419875573
 reg = Lasso(fit_intercept=False, alpha=9.540954763499944e-06)
 reg.fit(wrangler.feature_matrix, wrangler.get_property_vector("energy"))
 

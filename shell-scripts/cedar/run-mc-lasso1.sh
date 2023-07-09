@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --account=def-rottler
+#SBATCH --partition=default
+#SBATCH --time=23:00:00 
+#SBATCH --mail-user=valmzztt@student.ubc.ca
+#SBATCH --mail-type=ALL
+#SBATCH --ntasks=49              # number of MPI processes
+#SBATCH --mem-per-cpu=10G      # memory; default unit is megabytes
+cd MnNiAs-all
+cd conc_0p6_0p4
+python run-smol-lasso1.py

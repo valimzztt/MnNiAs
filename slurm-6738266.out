@@ -1,9 +1,0 @@
-/project/6001368/valmzztt/MnNiAs/MnNiAs-scf-conc/run-smol-lasso10.py:23: UserWarning: We are starting the job
-  warnings.warn("We are starting the job")
-/project/6001368/valmzztt/MnNiAs/MnNiAs-scf-conc/run-smol-lasso10.py:25: UserWarning: We have loaded the job
-  warnings.warn("We have loaded the job")
-/project/6001368/valmzztt/MnNiAs/MnNiAs-scf-conc/run-smol-lasso10.py:39: UserWarning: Sampling information: Metadata(cls_name='SampleContainer', kernels=[Metadata(seed=209519881300004910109302961626418781955, step=Metadata(sublattices=[(Element Mn, Element Ni), (Element As,)], sublattice_probabilities=array([1.]), cls_name='Swap'), cls_name='Metropolis')])
-  warnings.warn(f"Sampling information: {sampler.samples.metadata}")
-/project/6001368/valmzztt/MnNiAs/MnNiAs-scf-conc/run-smol-lasso10.py:48: UserWarning: About to apply transformation
-  warnings.warn("About to apply transformation")
-slurmstepd: error: *** JOB 6738266 ON cdr447 CANCELLED AT 2023-07-07T23:24:46 DUE TO TIME LIMIT ***
