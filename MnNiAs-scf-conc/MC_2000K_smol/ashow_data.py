@@ -2,9 +2,6 @@ import os
 import json
 import matplotlib.pyplot as plt
 import numpy as np
-import re
-
-
 
 def calculate_heat_capacity(data):
     temperatures = list(data.keys())
@@ -49,10 +46,11 @@ def richardson(f, x, n, h):
     return d[n, n]
 
 
-# assign directory RUN 1    
+# assign directory
 cwd = os.getcwd()
-dir_hubb_mc =  os.path.join(cwd, 'MnNiAs-scf')
-directory = os.path.join(dir_hubb_mc , "MC_2000K_smol")
+import re
+dir_hubb_mc = 'MC_2000K_smol'
+directory = os.path.join(cwd, dir_hubb_mc)
 data_dict = {}
 temperatures =[]
 info = []
@@ -62,45 +60,72 @@ for filename in os.listdir(directory):
         if(filename.startswith("MC") and not filename.endswith(".json")):
             with open(f) as f:
                 read = f.read()
+                print(read)
+                
                 pattern = r"'(\w+)': ([\-\d.]+)"
                 matches = re.findall(pattern, read)
+
                 mc_data = {}
+
                 for match in matches:
                     key = match[0]
                     value = float(match[1])
-                    mc_data[key] = value
+                    mc_data [key] = value
+
                 temperature = mc_data["temperature"]
                 energy = mc_data["avg_energy"]
-                heat_capacity = mc_data["minimum_energy"]
+                heat_capacity = mc_data["heat_capacity"]
                 if(temperature > 30): 
                     temperatures.append(temperature)
                     info.append((energy, heat_capacity))
-                           
+                   
+                
 data = dict(zip(temperatures, info))
+
 temps = list(data.keys())
 temps.sort()
 data= {i: data[i] for i in temps}
+print(data)
 temperatures = list(data.keys())
 info = list(data.values())
 energies = [point[0] for point in info]
+max_energy = max(energies)
+energies = [energy- max_energy for energy in energies]
 heat_capacities = [point[1] for point in info]
-print(data)
+hc_calc = calculate_heat_capacity(data)
+# Degree of polynomial function used as fitting func
+deg = 30
+x_data = np.linspace(min(temperatures),max(temperatures),num=200)
+mymodel = np.poly1d(np.polyfit(temperatures, energies, deg))
+
+#Using Richardson Extrapolation to avoid oscillations: 
+hc_rich = np.zeros(len(x_data))
+n = 3  # Number of levels of extrapolation
+h = 1 # Initial stepsize
+for i in range(len(x_data)):
+    x = x_data[i]
+    approx_derivative = richardson(mymodel, x, n, h)
+    hc_rich[i] = approx_derivative
+
+
 fig, ax = plt.subplots(2, 2)
 plt.subplot(2, 1, 1) # row 1, col 2 index 1
-plt.plot(temperatures, energies, "o",  marker='o',  label="run 1")
+plt.plot(temperatures, energies, "o",  marker='o',  label="measured")
+plt.plot(x_data , mymodel(x_data ), label="Polyfit of degree: " + str(deg))
 plt.grid(True)
 plt.xlabel('Temperature (K)')
-plt.ylabel('Average Energy (eV)')
+plt.ylabel('Energy (eV)')
 plt.legend()
 plt.subplot(2, 1, 2) # index 2
-plt.plot(temperatures, heat_capacities, "bo",  marker='.',  label ="run 1")
+plt.plot(temperatures, heat_capacities, "bo",  marker='.',  label ="measured")
+#plt.plot(temperatures, hc_calc, "ro",  marker='.', label ="Central difference approximation")
 
 #plt.plot(x_data, hc_rich, label ="Richardson Extrap. order %d step size %f" % (n, h))
 plt.xlabel('Temperature (K)')
-plt.ylabel('Minimum energy(J*K)')
+plt.ylabel('Heat capacity (J*K)')
 plt.grid(True)
 plt.legend(loc=2, prop={'size': 6})
 fig.tight_layout()
-energy_plot = os.path.join("NEW_results.png")
+energy_plot = os.path.join(directory, "amc-result.png")
 plt.savefig(energy_plot)
 plt.close()

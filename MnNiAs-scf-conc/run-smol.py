@@ -19,17 +19,16 @@ import warnings
 
 
 # These contain the ECI values obtained by fitting the SMOL data
-file_path = 'ce-data/ce_MnNiAs_scf.mson'
+file_path = 'ce-data/ce_MnNiAs_scf_c1_lasso2.mson'
 warnings.warn("We are starting the job")
 work = load_work(file_path)
 warnings.warn("We have loaded the job")
 for name, obj in work.items():
     print(f'{name}: {type(obj)}\n')
 expansion  = work.get("ClusterExpansion")
-from pymatgen.core.composition import Composition
 from pymatgen.core.periodic_table import Element
 
-sc_matrix = [[6, 0, 0], [0, 6, 0], [0, 0, 6]]
+sc_matrix = [[8, 0, 0], [0, 8, 0], [0, 0, 8]]
 
 
 ensemble = Ensemble.from_cluster_expansion(expansion, supercell_matrix=sc_matrix)
@@ -47,8 +46,6 @@ structure = expansion.cluster_subspace.structure.copy()
 structure.make_supercell(sc_matrix)
 warnings.warn("About to apply transformation")
 structure = transformation.apply_transformation_fast(structure)
-
-print(structure)
 
 import random
 
@@ -68,23 +65,14 @@ for i in range(0,len(structure.sites),1):
 print(structure)
 from ase.build import sort
 from ase.io import vasp
-atoms1 = AseAtomsAdaptor.get_atoms(structure)
-sorted_atoms=sort(atoms1)
-vasp.write_vasp('SORTED.vasp', sorted_atoms, direct=False, wrap=False)
-vasp.write_vasp('INITIAL.vasp', atoms1 , direct=False, wrap=False)
 init_occu = ensemble.processor.occupancy_from_structure(structure)
-
-#atoms = AseAtomsAdaptor.get_atoms(structure)
-
-# convert current energy structure to ASE atoms 
-from pymatgen.io.xyz import XYZ
 from pymatgen.io.cif import CifWriter
 
 #vasp.write_vasp('POSCARsorted{}.vasp'.format(T), sorted_atoms, direct=False, wrap=False)
 #sorted_atoms=sort(sorted_atoms)
 
 
-directory = 'MC_2000K_smol3'
+directory = 'MC_2000K_smol'
 cwd = os.getcwd()
 parent_dir = cwd
 path = os.path.join(parent_dir, directory)
@@ -96,7 +84,7 @@ T = 2000
 writer = CifWriter(structure)
 writer.write_file('INITIAL_STRUCT{}.cif'.format(T))
 
-mcmc_steps = 2000000
+mcmc_steps = 1000000
 heat_caps = []
 kb = k / electron_volt
 
@@ -111,11 +99,6 @@ curr_s = ensemble.processor.structure_from_occupancy(samples.get_occupancies()[-
 min_s = ensemble.processor.structure_from_occupancy(samples.get_minimum_energy_occupancy())
 # save minimum energy among all samples
 min_e = samples.get_minimum_energy()
-# convert current energy structure to ASE atoms 
-
-# save minimum energy among all samples
-min_e = samples.get_minimum_energy()
-
 # save average energy of samples
 avg_e = samples.mean_energy()
 mean_composition = samples.mean_composition()
@@ -132,7 +115,11 @@ with open('MC_2000K_eq.json','w') as f:
 
 for i in range(T, 0, -50):
     T = i
+    # This will take care of setting the defaults
+    # for the supplied canonical ensemble
+    sampler = Sampler.from_ensemble(ensemble, temperature=T)
     sampler.run(mcmc_steps,
+            initial_occupancies=init_occu,
             thin_by=10000, # thin_by will save every 100th sample only
             progress=False) # progress will show progress bar
     # Samples are saved in a sample container

@@ -53,7 +53,7 @@ db = connect(db_name)
 # Most straightforward way of generating a clusterSubspace.from_cutoffs
 # This will auto-generate the orbits from diameter cutoffs
 cutoffs = {2: 7, 3: 7, 4: 7} 
-subspace = ClusterSubspace.from_cutoffs(prim, cutoffs=cutoffs, use_concentration=True, supercell_size='As')
+subspace = ClusterSubspace.from_cutoffs(prim, cutoffs=cutoffs, use_concentration=True)
 warnings.warn("We have created the cluster subspace")
 
 """
@@ -107,7 +107,7 @@ warnings.warn(f'The effective cluster interactions are:\n{expansion.eci}\n')
 
 from smol.io import save_work
 
-file_path = 'ce-data/ce_MnNiAs_scf_conc1.mson'
+file_path = 'ce-data/ce_MnNiAs_scf_conc3.mson'
 # We can save the subspace as well, but since both the wrangler
 # and the expansion have it, there is no need to do so.
 save_work(file_path, wrangler, expansion)

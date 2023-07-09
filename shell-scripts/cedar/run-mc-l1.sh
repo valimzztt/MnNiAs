@@ -6,5 +6,5 @@
 #SBATCH --mail-type=ALL
 #SBATCH --ntasks=49              # number of MPI processes
 #SBATCH --mem-per-cpu=10G      # memory; default unit is megabytes
-cd MnNiAs-scf
+cd MnNiAs-scf-conc
 python run-mc-l1.py

@@ -6,7 +6,7 @@ from smol.cofe import ClusterSubspace, StructureWrangler, ClusterExpansion, Regr
 from smol.io import save_work
 
 
-file_path = 'ce-data/ce_MnNiAs_scf.mson'
+file_path = 'ce-data/ce_MnNiAs_scf_c1_lasso2.mson'
 
 work = load_work(file_path)
 for name, obj in work.items():

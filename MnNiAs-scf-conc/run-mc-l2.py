@@ -34,7 +34,7 @@ print(atoms)
 from clease.montecarlo import Montecarlo
 from clease.montecarlo.observers import EnergyEvolution
 # Monte Carlo results will be created in new directory
-directory = 'MC_2000K_results_l2'
+directory = 'MC_2000K_results_l2_clease2'
 cwd = os.getcwd()
 parent_dir = cwd
 path = os.path.join(parent_dir, directory)

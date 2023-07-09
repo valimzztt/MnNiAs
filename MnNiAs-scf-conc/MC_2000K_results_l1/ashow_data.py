@@ -100,6 +100,11 @@ for i in range(len(x_data)):
     approx_derivative = richardson(mymodel, x, n, h)
     hc_rich[i] = approx_derivative
 
+#store energy for reference
+json_filename = os.path.join(directory,"energies.json")
+with open(json_filename, "w") as fp:
+    json.dump(data,fp)
+
 
 fig, ax = plt.subplots(2, 2)
 plt.subplot(2, 1, 1) # row 1, col 2 index 1

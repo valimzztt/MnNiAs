@@ -2,12 +2,9 @@ from clease.settings import Concentration
 import os 
 
 from clease.settings import Concentration
-A_eq = [[0.4, -0.6, 0.0]]
-b_eq = [0.0]
-conc = Concentration(basis_elements=[['Mn', 'Ni'], ['As']], A_eq=A_eq, b_eq=b_eq)
-for i in range(10):
-    x = conc.get_random_concentration([18, 18])
-    # assert abs(x[0] - x[1]) < 1e-8
+conc = Concentration(basis_elements=[['Mn', 'Ni'], ['As']])
+conc.set_conc_ranges(ranges=[[(0,1),(0,1)], [(1,1)]])
+
 
 #define crystal structure
 from clease.settings import CECrystal
@@ -37,7 +34,7 @@ print(atoms)
 from clease.montecarlo import Montecarlo
 from clease.montecarlo.observers import EnergyEvolution
 # Monte Carlo results will be created in new directory
-directory = 'MC_2000K_results_l1'
+directory = 'MC_2000K_results_l1_clease'
 cwd = os.getcwd()
 parent_dir = cwd
 path = os.path.join(parent_dir, directory)
@@ -81,7 +78,7 @@ print(energies, sep='\n', file=f)
 f.close()
 
 
-for i in range(2000, 0, -50):
+for i in range(2000, 0, -5):
     T = i
     #atoms = vasp.read_vasp(POSCARstring)
     #atoms = attach_calculator(settings, atoms=atoms, eci=eci)
